@@ -19,14 +19,12 @@ body {
   width: 50%;
   float: left;
   display: flex;
+  height: 100%;
 }
 
 .left-container {
   margin: auto;
   width: 60%;
-  height: 100%;
-  /*vertical-align: middle;*/
-  /*align-items: center;*/
 }
 
 h1 {
@@ -35,13 +33,13 @@ h1 {
 }
 
 img {
-  width: 80px;
   height: auto;
+  width: 80px;
 }
 
 form {
-  width: 100%;
   margin: auto;
+  width: 100%;
 }
 
 input {
@@ -68,40 +66,43 @@ input {
 
 /*RIGHT SIDE OF PAGE*/
 #website-list {
-  width: 50%;
-  float: right;
   background-color: #cfd8dc;
+  overflow: scroll;
+  width: 50%;
 }
 
 article {
+  background-color: #fff;
   border: 1.5px solid #607d8b;
   margin: 20px;
   margin-bottom: 5px;
-  background-color: #fff;
 }
 
 h2 {
   color: #455a64;
-  padding: 5px;
   margin-left: 10px;
+  padding: 5px;
 }
 
 .card-url-link {
   color: #607d8b;
   border-top: 1px solid #cfd8dc;
   border-bottom: 1px solid #cfd8dc;
-  padding: 15px 0 15px 0;
+  padding: 12px 0 12px 0;
   margin-right: 15px;
   margin-left: 15px;
   font-size: 20px;
   color: #607d8b;
   text-decoration-color: #f2f4f4;
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-url-link:hover {
-  text-decoration-color: #ffc107;
   font-weight: 600;
+  text-decoration-color: #ffc107;
 }
 
 .read-indicator {
@@ -117,6 +118,18 @@ h2 {
 .read-indicator:hover {
   border-bottom: 1px solid #ffc107;
   font-weight: 600;
+}
+
+
+.indicator-on {
+  color: #f05a28;
+  font-weight: 600;
+  border-bottom: 1px solid #fff;
+  margin: 5px 0 10px 15px;
+  outline: none;
+  font-size: 15px;
+  display: inline-block;
+  border: none;
 }
 
 button {
@@ -138,8 +151,9 @@ button {
   border-bottom: 1px solid #ffc107;
   font-weight: 600;
 }
- .enter-btn:hover,
- .delete-btn:hover,
- .card-url-link:hover {
+
+.enter-btn:hover,
+.delete-btn:hover,
+.card-url-link:hover {
    cursor: pointer;
  }
