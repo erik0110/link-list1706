@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+
+}
+
+/*LEFT SIDE OF PAGE*/
+#website-entry {
+  background-color: #455a64;
+  color: #fff;
+  width: 50%;
+  float: left;
+  display: flex;
+}
+
+.left-container {
+  margin: auto;
+  width: 60%;
+  height: 100%;
+  /*vertical-align: middle;*/
+  /*align-items: center;*/
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+img {
+  width: 80px;
+  height: auto;
+}
+
+form {
+  width: 100%;
+  margin: auto;
+}
+
+input {
+  outline: none;
+  border: none;
+  padding: 5px;
+  width: 100%;
+  margin: auto;
+  margin-top: 28px;
+  font-size: 18px;
+  color: #455a64;
+}
+
+.enter-btn {
+  background-color: #ffc107;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.enter-btn:hover {
+  background-color: #ffd773;
+  color: #fff;
+}
+
+/*RIGHT SIDE OF PAGE*/
+#website-list {
+  width: 50%;
+  float: right;
+  background-color: #cfd8dc;
+}
+
+article {
+  border: 1.5px solid #607d8b;
+  margin: 20px;
+  margin-bottom: 5px;
+  background-color: #fff;
+}
+
+h2 {
+  color: #455a64;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.card-url-link {
+  color: #607d8b;
+  border-top: 1px solid #cfd8dc;
+  border-bottom: 1px solid #cfd8dc;
+  padding: 15px 0 15px 0;
+  margin-right: 15px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #607d8b;
+  text-decoration-color: #f2f4f4;
+  display: block;
+}
+
+.card-url-link:hover {
+  text-decoration-color: #ffc107;
+  font-weight: 600;
+}
+
+.read-indicator {
+  margin: 5px 0 10px 15px;
+  outline: none;
+  font-size: 15px;
+  display: inline-block;
+  color: #455a64;
+  border: none;
+  border-bottom: 1px solid #cfd8dc;
+}
+
+.read-indicator:hover {
+  border-bottom: 1px solid #ffc107;
+  font-weight: 600;
+}
+
+button {
+  /*border-bottom: 1px solid #455a64;*/
+  background-color: #fff;
+  color: #455A64;
+  border: none;
+  border-bottom: 1px solid #cfd8dc;
+  font-size: 15px;
+}
+
+.delete-btn {
+  float: right;
+  margin: 5px 15px 10px 0;
+  outline: none;
+}
+
+.delete-btn:hover {
+  border-bottom: 1px solid #ffc107;
+  font-weight: 600;
+}
+ .enter-btn:hover,
+ .delete-btn:hover,
+ .card-url-link:hover {
+   cursor: pointer;
+ }
