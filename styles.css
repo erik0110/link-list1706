@@ -56,12 +56,18 @@ input {
 }
 
 .enter-btn {
+    background-color: #ffd773;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.enter-btn-able {
   background-color: #ffc107;
   color: #fff;
   margin-bottom: 20px;
 }
 
-.enter-btn:hover {
+.enter-btn-able:hover {
   background-color: #ffd773;
   color: #fff;
 }
