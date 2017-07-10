@@ -5,23 +5,21 @@
     <title>Linked List</title>
     <link href="styles.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="path/to/your/jquery.min.js"><\/script>')</script>
   </head>
 
   <body>
     <section id="website-entry">
       <div class="left-container">
-        <h1>Linked <img src="/Users/amyholt/Desktop/linked-list-logo.svg" alt="Links"> List</h1>
-        <form class="" action="" />
+        <h1>Linked<img src="/Users/amyholt/Desktop/linked-list-logo.svg" alt="Links">List</h1>
+        <form id="user-input" />
           <label for="">
-            <input type="text" name="website-title" placeholder="Website Title" class="title"/>
+            <input type="text" name="website-title" placeholder="Website Title" class="title" required />
           </label>
           <label for="">
-            <input type="text" name="website-url" placeholder="Website URL" class="url"/>
+            <input type="url" name="website-url" placeholder="Website URL" class="url" required />
           </label>
           <label for="">
-            <input type="submit" name="" value="Enter" class="enter-btn"/>
+            <input type="submit" name="" value="Enter" class="enter-btn" disabled />
           </label>
         </form>
       </div>
@@ -40,6 +38,8 @@
 
     </section>
   </body>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="path/to/your/jquery.min.js"><\/script>')</script>
   <script type="text/javascript" src="script.js"></script>
 
 </html>

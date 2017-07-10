@@ -35,6 +35,8 @@ h1 {
 img {
   height: auto;
   width: 80px;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 form {
@@ -92,7 +94,6 @@ h2 {
   margin-right: 15px;
   margin-left: 15px;
   font-size: 20px;
-  color: #607d8b;
   text-decoration-color: #f2f4f4;
   display: block;
   white-space: nowrap;
@@ -124,12 +125,16 @@ h2 {
 .indicator-on {
   color: #f05a28;
   font-weight: 600;
-  border-bottom: 1px solid #fff;
   margin: 5px 0 10px 15px;
   outline: none;
   font-size: 15px;
   display: inline-block;
   border: none;
+  border-bottom: 1px solid #fff;
+}
+
+.indicator-on:hover {
+  border-bottom: 1px solid #fff;
 }
 
 button {
