@@ -6,12 +6,17 @@ var $enterBtn = $('.enter-btn');
 var $readBtn = $('.read-btn');
 var $deleteBtn = $('.delete.btn');
 var $newCard = $('article');
+var $cardCounter = 0;
+var $readCounter = 0;
+var $newUrl;
 
 //click enter and it validates input, clears input fields of form
 $('.enter-btn').on('click', function (e) {
   e.preventDefault();
-  clearInputFields();
   addCard();
+  clearInputFields();
+  $cardCounter++;
+  console.log($cardCounter);
 });
 
 //this clears the input fields
@@ -37,38 +42,32 @@ function validateInput() {
     $enterBtn.attr('disabled', true);
   } else {
     $enterBtn.attr('disabled', false);
-    console.log('enter is active');
     $enterBtn.addClass('enter-btn-able');
   }
 }
 
 function addCard() {
+  var $cardLibrary = $('#website-list');
   var $newWebsite = $('.title').val();
-  // console.log($newWebsite);
-  var $newUrl = $('.url').val();
-  var newCard = `<article>
+  $newUrl = $('.url').val();
+  var $newCard = `<article>
       <h2 class="card-title">${$newWebsite}</h2>
-
       <a href="${$newUrl}" target="_blank" class="card-url-link" >${$newUrl}</a>
-
       <p class="read-indicator">Read</p>
-
       <button type="button" name="delete" class="delete-btn">Delete</button>
   </article>`;
-  $('#website-list').prepend(newCard);
+  $cardLibrary.prepend($newCard);
 }
 
 //this targets the link for a click so the read words turn red
 $('#website-list').on('click', '.card-url-link', function (e) {
     $(e.target).parent().find('.read-indicator').addClass('indicator-on');
-    $('.card-url-link').attr('href', newUrl);
+    $readCounter++;
   });
 
 //need to write a function to delete card
-$('.delete-btn').on('click', function () {
+$('#website-list').on('click', '.delete-btn', function (e) {
+    $(e.target).parent().remove();
+    $cardCounter--;
+    console.log($cardCounter);
 });
-
-// $('#user-input').validate(); {
-//   required: true;
-//   url: true;
-// };

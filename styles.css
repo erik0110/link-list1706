@@ -72,6 +72,33 @@ input {
   color: #fff;
 }
 
+.count-info {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-cards,
+.read-count,
+.unread-count {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  margin: 1%;
+  background-color: #cfd8dc;
+  color: #455a64;
+  border: none;
+}
+
+.total-cards {
+  margin-left: 0;
+}
+
+.unread-count{
+  margin-right: 0;
+}
+
 /*RIGHT SIDE OF PAGE*/
 #website-list {
   background-color: #cfd8dc;
