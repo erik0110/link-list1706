@@ -58,13 +58,13 @@ input {
 .enter-btn {
     background-color: #ffd773;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 
 .enter-btn-able {
   background-color: #ffc107;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
 }
 
 .enter-btn-able:hover {
@@ -75,19 +75,20 @@ input {
 .count-info {
   width: 100%;
   margin: auto;
-  display: flex;
+  display: block;
   justify-content: space-between;
+  /*visibility: hidden;*/
 }
 
 .total-cards,
 .read-count,
 .unread-count {
   display: inline-block;
-  width: 30%;
+  width: 31.25%;
   text-align: center;
   margin: 1%;
-  background-color: #cfd8dc;
-  color: #455a64;
+  background-color: #f2f4f4;
+  color: #2f3d44;
   border: none;
 }
 
@@ -97,6 +98,23 @@ input {
 
 .unread-count{
   margin-right: 0;
+}
+
+.count-number {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.delete-read-btn {
+  width: 100%;
+  display: block;
+  margin-top: 12px;
+  font-size: 18px;
+  padding: 5px;
+  background-color: #f05a28;
+  color: #fff;
+  border: none;
+  outline: none;
 }
 
 /*RIGHT SIDE OF PAGE*/
@@ -146,13 +164,13 @@ h2 {
   display: inline-block;
   color: #455a64;
   border: none;
-  border-bottom: 1px solid #cfd8dc;
+  /*border-bottom: 1px solid #cfd8dc;*/
 }
 
-.read-indicator:hover {
+/*.read-indicator:hover {
   border-bottom: 1px solid #ffc107;
   font-weight: 600;
-}
+}*/
 
 
 .indicator-on {
@@ -179,19 +197,19 @@ button {
   font-size: 15px;
 }
 
-.delete-btn {
+.delete-card-btn {
   float: right;
   margin: 5px 15px 10px 0;
   outline: none;
 }
 
-.delete-btn:hover {
+.delete-card-btn:hover {
   border-bottom: 1px solid #ffc107;
   font-weight: 600;
 }
 
 .enter-btn:hover,
-.delete-btn:hover,
+.delete-card-btn:hover,
 .card-url-link:hover {
    cursor: pointer;
  }

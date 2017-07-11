@@ -1,40 +1,77 @@
 // jshint esversion: 6
-
-var $title = $('.title');
-var $url = $('.url');
-var $enterBtn = $('.enter-btn');
-var $readBtn = $('.read-btn');
-var $deleteBtn = $('.delete.btn');
-var $newCard = $('article');
 var $cardCounter = 0;
-var $readCounter = 0;
+var $countInfo = $('.count-info');
+var $deleteBtn = $('.delete-card-btn');
+var $enterBtn = $('.enter-btn');
+var $newCard = $('article');
 var $newUrl;
+var $readBtn = $('.read-btn');
+var $readCounter = 0;
+var $title = $('.title');
+var $unreadCounter = 0;
+var $url = $('.url');
 
-//click enter and it validates input, clears input fields of form
-$('.enter-btn').on('click', function (e) {
-  e.preventDefault();
-  addCard();
-  clearInputFields();
-  $cardCounter++;
-  console.log($cardCounter);
-});
+function addCard() {
+  var $cardLibrary = $('#website-list');
+  var $newWebsite = $('.title').val();
+  $newUrl = $('.url').val();
+  var $newCard = `<article>
+      <h2 class="card-title">${$newWebsite}</h2>
+      <a href="${$newUrl}" target="_blank" class="card-url-link" >${$newUrl}</a>
+      <p class="read-indicator">Read</p>
+      <button type="button" name="delete" class="delete-card-btn">Delete</button>
+  </article>`;
+  $cardLibrary.prepend($newCard);
+}
 
-//this clears the input fields
 function clearInputFields() {
   $('.title').val('');
   $('.url').val('');
 }
 
-$url.on('input', function () {
-  validateInput();
-});
+function deleteRead() {
+  $readCounter -= $('.has-been-read').length;
+  readCardCount();
+  $cardCounter -= $('.has-been-read').length;
+  totalCardCount();
+  $('.has-been-read').remove();
+}
 
-$title.on('input', function () {
-  validateInput();
-});
+function hideCountInfo() {
+  $countInfo.css('visibility', 'hidden');
+}
 
-//make sure user typed something in, once they do it will
-//run addCard- STILL THINKS THE VALUE IS UNDEFINED
+function readCardCount() {
+  $('.read-card-count').text($readCounter);
+}
+
+function showCountInfo() {
+  $countInfo.css('visibility', 'visible');
+  totalCardCount();
+}
+
+function toggleDeleteReadBtn() {
+  if ($readCounter === 0) {
+    $('.delete-read-btn').attr('disabled', true);
+  } else {
+    $('.delete-read-btn').attr('disabled', false);
+  }
+}
+
+function totalCardCount() {
+  $('.total-card-count').text($cardCounter);
+}
+
+function unreadCardCount() {
+  $unreadCounter = $cardCounter - $readCounter;
+  $('.unread-card-count').text($unreadCounter);
+}
+
+//this is going to need to change to being called on click of 'get started' button on welcome page
+$(document).ready(hideCountInfo);
+
+$(window).on('click', toggleDeleteReadBtn);
+
 function validateInput() {
   $title = $('.title').val();
   $url = $('.url').val();
@@ -46,28 +83,48 @@ function validateInput() {
   }
 }
 
-function addCard() {
-  var $cardLibrary = $('#website-list');
-  var $newWebsite = $('.title').val();
-  $newUrl = $('.url').val();
-  var $newCard = `<article>
-      <h2 class="card-title">${$newWebsite}</h2>
-      <a href="${$newUrl}" target="_blank" class="card-url-link" >${$newUrl}</a>
-      <p class="read-indicator">Read</p>
-      <button type="button" name="delete" class="delete-btn">Delete</button>
-  </article>`;
-  $cardLibrary.prepend($newCard);
-}
-
-//this targets the link for a click so the read words turn red
 $('#website-list').on('click', '.card-url-link', function (e) {
     $(e.target).parent().find('.read-indicator').addClass('indicator-on');
+    $(e.target).parent().addClass('has-been-read');
     $readCounter++;
+    readCardCount();
+    unreadCardCount();
   });
 
-//need to write a function to delete card
-$('#website-list').on('click', '.delete-btn', function (e) {
+$('#website-list').on('click', '.delete-card-btn', function (e) {
     $(e.target).parent().remove();
+    console.log(e);
     $cardCounter--;
-    console.log($cardCounter);
+    updateCountForDelete(e);
+  });
+
+function updateCountForDelete(e) {
+  if ($(e.target).parent().hasClass('has-been-read')) {
+    $readCounter--;
+    totalCardCount();
+    readCardCount();
+  } else {
+    $unreadCounter--;
+    totalCardCount();
+    unreadCardCount();
+  }
+}
+
+$url.on('input', function () {
+  validateInput();
 });
+
+$title.on('input', function () {
+  validateInput();
+});
+
+$('.enter-btn').on('click', function (e) {
+  e.preventDefault();
+  addCard();
+  clearInputFields();
+  $cardCounter++;
+  showCountInfo();
+  unreadCardCount();
+});
+
+$('.delete-read-btn').on('click', deleteRead);
