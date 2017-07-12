@@ -67,10 +67,17 @@ function unreadCardCount() {
   $('.unread-card-count').text($unreadCounter);
 }
 
-//this is going to need to change to being called on click of 'get started' button on welcome page
-$(document).ready(hideCountInfo);
-
-$(window).on('click', toggleDeleteReadBtn);
+function updateCountForDelete(e) {
+  if ($(e.target).parent().hasClass('has-been-read')) {
+    $readCounter--;
+    totalCardCount();
+    readCardCount();
+  } else {
+    $unreadCounter--;
+    totalCardCount();
+    unreadCardCount();
+  }
+}
 
 function validateInput() {
   $title = $('.title').val();
@@ -79,9 +86,42 @@ function validateInput() {
     $enterBtn.attr('disabled', true);
   } else {
     $enterBtn.attr('disabled', false);
-    $enterBtn.addClass('enter-btn-able');
   }
 }
+
+function validateUrl() {
+  var $urlToTest = $('.url').val();
+  var $urlEval = new RegExp('^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$');
+  if ($urlEval.test($urlToTest)) {
+    $enterBtn.attr('disabled', false);
+    $('.error').css('visibility', 'hidden');
+    console.log('if');
+  } else {
+    $('.enter').attr('disabled', true);
+    $('.error').css('visibility', 'visible');
+    console.log('else');
+  }
+}
+
+//this is going to need to change to being called on click of 'get started' button on welcome page
+$(document).ready(hideCountInfo);
+
+$(window).on('click', toggleDeleteReadBtn);
+
+$('.delete-read-btn').on('click', deleteRead);
+
+$('.enter-btn').on('click', function (e) {
+  e.preventDefault();
+  addCard();
+  clearInputFields();
+  $cardCounter++;
+  showCountInfo();
+  unreadCardCount();
+});
+
+$title.on('input', validateInput);
+
+$url.on('input', validateUrl);
 
 $('#website-list').on('click', '.card-url-link', function (e) {
     $(e.target).parent().find('.read-indicator').addClass('indicator-on');
@@ -97,46 +137,3 @@ $('#website-list').on('click', '.delete-card-btn', function (e) {
     $cardCounter--;
     updateCountForDelete(e);
   });
-
-function updateCountForDelete(e) {
-  if ($(e.target).parent().hasClass('has-been-read')) {
-    $readCounter--;
-    totalCardCount();
-    readCardCount();
-  } else {
-    $unreadCounter--;
-    totalCardCount();
-    unreadCardCount();
-  }
-}
-
-$url.on('input', function () {
-  validateInput();
-});
-
-$title.on('input', function () {
-  validateInput();
-});
-
-$('.enter-btn').on('click', function (e) {
-  e.preventDefault();
-
-  // validateUrl();
-  addCard();
-  clearInputFields();
-  $cardCounter++;
-  showCountInfo();
-  unreadCardCount();
-});
-
-$('.delete-read-btn').on('click', deleteRead);
-
-// function validateUrl() {
-//   var urlEval = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/;
-//   if (urlEval.test($(this).val())) {
-//     $enterBtn.attr('disabled', false);
-//   } else {
-//     $('.enter').attr('disabled', true);
-//     $('.error').attr('visibility', 'visible');
-//   }
-// }

@@ -9,7 +9,6 @@ body {
   height: 100vh;
   width: 100%;
   display: flex;
-
 }
 
 /*LEFT SIDE OF PAGE*/
@@ -17,13 +16,12 @@ body {
   background-color: #455a64;
   color: #fff;
   width: 50%;
-  float: left;
-  display: flex;
   height: 100%;
 }
 
 .left-container {
   margin: auto;
+  margin-top: 90px;
   width: 60%;
 }
 
@@ -55,19 +53,19 @@ input {
   color: #455a64;
 }
 
-.enter-btn {
+.enter-btn:disabled {
     background-color: #ffd773;
     color: #fff;
     margin-bottom: 28px;
 }
 
-.enter-btn-able {
+.enter-btn {
   background-color: #ffc107;
   color: #fff;
   margin-bottom: 28px;
 }
 
-.enter-btn-able:hover {
+.enter-btn:hover {
   background-color: #ffd773;
   color: #fff;
 }
@@ -242,16 +240,20 @@ button {
     width: 31%;
   }
 
+  .left-container {
+    margin-top: 60px;
+  }
+
 }
 
 @media (max-width: 1019px) {
 
   h1 {
-    font-size: 34px;
+    font-size: 36px;
   }
 
   img {
-    width: 48px;
+    width: 50px;
     height: auto;
   }
 
@@ -262,5 +264,74 @@ button {
 }
 
 @media (max-width: 784px) {
+
+  h1 {
+    font-size: 30px;
+  }
+
+  img {
+    width: 40px;
+    height: auto;
+  }
+
+  .total-cards,
+  .read-count,
+  .unread-count {
+    width: 30.5%;
+  }
+
+  .left-container {
+    width: 70%;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .card-url-link {
+    font-size: 16px;
+  }
+
+  .delete-card-btn,
+  .read-indicator {
+    font-size: 14px;
+  }
+
+  .count-info {
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 646px) {
+
+  #website-entry {
+    width: 100%;
+    height: 100vh;
+  }
+
+  #website-list {
+    width: 100%;
+  }
+
+  body {
+    flex-direction: column;
+  }
+
+  .count-info {
+    margin-top: 28px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  img {
+    width: 50px;
+    height: auto;
+  }
+
+  .delete-read-btn {
+    margin-bottom: 20px;
+  }
 
 }
