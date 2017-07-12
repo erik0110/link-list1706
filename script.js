@@ -11,6 +11,7 @@ var $title = $('.title');
 var $unreadCounter = 0;
 var $url = $('.url');
 
+//FUNCTIONS
 function addCard() {
   var $cardLibrary = $('#website-list');
   var $newWebsite = $('.title').val();
@@ -103,10 +104,10 @@ function validateUrl() {
   }
 }
 
-//this is going to need to change to being called on click of 'get started' button on welcome page
-$(document).ready(hideCountInfo);
-
+//EVENT LISTENERS
 $(window).on('click', toggleDeleteReadBtn);
+
+$(document).ready(hideCountInfo);
 
 $('.delete-read-btn').on('click', deleteRead);
 
