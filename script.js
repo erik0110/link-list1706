@@ -120,6 +120,8 @@ $title.on('input', function () {
 
 $('.enter-btn').on('click', function (e) {
   e.preventDefault();
+
+  // validateUrl();
   addCard();
   clearInputFields();
   $cardCounter++;
@@ -128,3 +130,13 @@ $('.enter-btn').on('click', function (e) {
 });
 
 $('.delete-read-btn').on('click', deleteRead);
+
+// function validateUrl() {
+//   var urlEval = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/;
+//   if (urlEval.test($(this).val())) {
+//     $enterBtn.attr('disabled', false);
+//   } else {
+//     $('.enter').attr('disabled', true);
+//     $('.error').attr('visibility', 'visible');
+//   }
+// }
