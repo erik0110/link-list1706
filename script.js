@@ -1,22 +1,20 @@
 // jshint esversion: 6
-var $cardCounter = 0;
+var $title = $('.title');
+var $url = $('.url');
+var $enterBtn = $('.enter-btn');
 var $countInfo = $('.count-info');
 var $deleteBtn = $('.delete-card-btn');
-var $enterBtn = $('.enter-btn');
 var $newCard = $('article');
-var $newUrl;
-var $readBtn = $('.read-btn');
+var $cardCounter = 0;
 var $readCounter = 0;
-var $title = $('.title');
 var $unreadCounter = 0;
-var $url = $('.url');
 
 //FUNCTIONS
 function addCard() {
   var $cardLibrary = $('#website-list');
   var $newWebsite = $('.title').val();
-  $newUrl = $('.url').val();
-  var $newCard = `<article>
+  var $newUrl = $('.url').val();
+  $newCard = `<article>
       <h2 class="card-title">${$newWebsite}</h2>
       <a href="${$newUrl}" target="_blank" class="card-url-link" >${$newUrl}</a>
       <p class="read-indicator">Read</p>
@@ -96,11 +94,9 @@ function validateUrl() {
   if ($urlEval.test($urlToTest)) {
     $enterBtn.attr('disabled', false);
     $('.error').css('visibility', 'hidden');
-    console.log('if');
   } else {
     $('.enter').attr('disabled', true);
     $('.error').css('visibility', 'visible');
-    console.log('else');
   }
 }
 
@@ -115,6 +111,7 @@ $('.enter-btn').on('click', function (e) {
   e.preventDefault();
   addCard();
   clearInputFields();
+  validateInput();
   $cardCounter++;
   showCountInfo();
   unreadCardCount();
@@ -134,7 +131,6 @@ $('#website-list').on('click', '.card-url-link', function (e) {
 
 $('#website-list').on('click', '.delete-card-btn', function (e) {
     $(e.target).parent().remove();
-    console.log(e);
     $cardCounter--;
     updateCountForDelete(e);
   });

@@ -6,8 +6,8 @@
 }
 
 body {
-  height: 100vh;
   display: flex;
+  height: 100vh;
   width: 100%;
 }
 
@@ -60,9 +60,9 @@ input {
 }
 
 .enter-btn:disabled {
-    background-color: #ffd773;
-    color: #fff;
-    margin-bottom: 28px;
+  background-color: #ffd773;
+  color: #fff;
+  margin-bottom: 28px;
 }
 
 .enter-btn:hover {
@@ -72,6 +72,7 @@ input {
 
 .error {
   display: block;
+  margin-bottom: 12px;
   padding: 5px;
   width: 100%;
   background-color: #f05a28;
@@ -119,9 +120,9 @@ input {
   padding: 5px;
   margin-top: 12px;
   width: 100%;
-  font-size: 18px;
   background-color: #f05a28;
   color: #fff;
+  font-size: 18px;
   outline: none;
 }
 
@@ -152,12 +153,12 @@ h2 {
   font-size: 20px;
   margin-right: 15px;
   margin-left: 15px;
-  overflow: hidden;
   padding: 12px 0 12px 0;
+  color: #607d8b;
   text-decoration-color: #f2f4f4;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: #607d8b;
 }
 
 .card-url-link:hover {
@@ -169,7 +170,6 @@ h2 {
   border: none;
   display: inline-block;
   margin: 5px 0 10px 15px;
-  outline: none;
   color: #455a64;
   font-size: 15px;
 }
@@ -178,11 +178,11 @@ h2 {
   border: none;
   border-bottom: 1px solid #fff;
   display: inline-block;
-  font-size: 15px;
   margin: 5px 0 10px 15px;
-  outline: none;
   color: #f05a28;
+  font-size: 15px;
   font-weight: 600;
+  outline: none;
 }
 
 .indicator-on:hover {
@@ -192,12 +192,12 @@ h2 {
 .delete-card-btn {
   float: right;
   margin: 5px 15px 10px 0;
-  outline: none;
   border: none;
   border-bottom: 1px solid #cfd8dc;
   background-color: #fff;
   color: #455A64;
   font-size: 15px;
+  outline: none;
 }
 
 .delete-card-btn:hover {
@@ -334,7 +334,7 @@ h2 {
 }
 
 @media (max-width: 533px) {
-
+/*LEFT SIDE*/
   h1 {
     font-size: 32px;
   }
